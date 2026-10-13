@@ -1,0 +1,332 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Somayah Nouruzi Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
+<style>
+/* Layout: oversized name, then a sticky section picker that works like a dashboard. Only the chosen section shows, with a Show all option. Hairline rules instead of boxes, plain muted labels, one cobalt band for the connect section. */
+:root{
+  --bg:#f4f6fa; --fg:#101828; --muted:#475467; --line:#d0d7e2;
+  --tint:#e8edf6; --accent:#1f4fd8; --on-accent:#ffffff; --accent-text:#1f4fd8;
+  --display:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;
+  --font:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(16px,4vw,64px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c111b; --fg:#e8edf6; --muted:#a2adc2; --line:#243044;
+  --tint:#111a2a; --accent:#7aa2ff; --on-accent:#0a1020; --accent-text:#7aa2ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c111b; --fg:#e8edf6; --muted:#a2adc2; --line:#243044;
+  --tint:#111a2a; --accent:#7aa2ff; --on-accent:#0a1020; --accent-text:#7aa2ff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.65;padding-inline:var(--gutter);padding-block:0}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--display);letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1240px;margin-inline:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.nav .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 32px;padding-block:20px;border-bottom:1px solid var(--line)}
+.nav strong{font-family:var(--display);font-size:19px;letter-spacing:-.01em}
+.nav a{text-decoration:none;color:var(--muted);font-size:16px}
+.nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,88px) clamp(36px,5vw,64px)}
+.hero h1{font-size:clamp(52px,10.4vw,140px);font-weight:800;line-height:.96;letter-spacing:-.045em}
+.role{font-family:var(--display);font-size:clamp(26px,3.4vw,44px);font-weight:500;letter-spacing:-.025em;margin-top:18px}
+.exp-line{color:var(--muted);font-size:clamp(18px,1.7vw,22px);max-width:62ch;margin-top:22px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px clamp(40px,7vw,110px);align-items:start;margin-top:clamp(40px,6vw,72px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.hero-grid h2{font-size:clamp(30px,4vw,54px);font-weight:700;line-height:1.08}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--muted);max-width:56ch;margin-block:20px 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font:inherit;font-weight:700;text-decoration:none;border:1px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer}
+.btn:hover{background:var(--tint)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{filter:brightness(1.1)}
+.focus h3{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.focus ul{list-style:none;padding:0;margin:0}
+.focus li{padding-block:12px;border-top:1px solid var(--line);font-family:var(--display);font-size:19px;line-height:1.3;letter-spacing:-.015em}
+
+/* section picker */
+.picker{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-inline:calc(-1*var(--gutter));padding-inline:var(--gutter);border-bottom:1px solid var(--line)}
+.picker .wrap{display:flex;align-items:stretch;justify-content:space-between;gap:24px}
+.tabs{display:flex;gap:clamp(14px,3.4vw,44px);min-width:0}
+.tab{background:none;border:0;font:inherit;cursor:pointer;white-space:nowrap}
+.tab{border-bottom:3px solid transparent;margin-bottom:-1px;padding:18px 0 15px;font-family:var(--display);font-size:clamp(15px,1.7vw,21px);letter-spacing:-.015em;color:var(--muted)}
+.tab:hover{color:var(--fg)}
+.tab[aria-pressed="true"]{color:var(--fg);font-weight:700;border-bottom-color:var(--fg)}
+
+/* panels */
+.panel{padding-block:clamp(48px,6vw,88px) 0}
+.panel>.wrap>h2,.panel h2.big{font-size:clamp(44px,6.8vw,96px);font-weight:700;line-height:1;letter-spacing:-.04em}
+.intro{color:var(--muted);font-size:20px;max-width:56ch;margin-top:20px}
+.panel .wrap>.intro+*{margin-top:clamp(32px,4vw,56px)}
+.sub-sec{margin-top:clamp(40px,6vw,80px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.subh{font-size:clamp(34px,4.6vw,64px);font-weight:700;line-height:1.05;letter-spacing:-.035em}
+.sub-sec>.intro+*{margin-top:clamp(28px,4vw,48px)}
+
+.exp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(40px,7vw,110px)}
+.exp .item{display:grid;grid-template-columns:48px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-block:28px 34px}
+.num{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:2px solid var(--fg);border-radius:50%;font-family:var(--display);font-size:21px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.exp h3{font-size:24px;line-height:1.2;letter-spacing:-.02em;margin:4px 0 10px}
+.exp p{color:var(--muted)}
+.enjoy{font-size:26px;letter-spacing:-.02em;margin:40px 0 12px}
+
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px 32px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line);margin-top:28px}
+.note{color:var(--muted);font-size:15px;max-width:70ch}
+.link{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--fg);cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.link:hover{color:var(--accent-text)}
+
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:24px clamp(32px,6vw,96px);padding-block:44px;border-bottom:1px solid var(--line)}
+.case:last-child{border-bottom:0}
+.c-main{min-width:0}
+.c-tag{font-size:15px;color:var(--muted)}
+.case h3{font-size:clamp(26px,3vw,38px);line-height:1.1;margin-block:10px 14px}
+.sub{color:var(--muted);font-size:18px;max-width:62ch}
+.words{display:flex;flex-wrap:wrap;gap:4px 0;list-style:none;padding:0;margin:16px 0 0;font-size:15px;font-weight:500}
+.words li+li::before{content:"/";margin-inline:12px;color:var(--line)}
+.toggle{margin-top:20px}
+.c-out{min-width:0;border-top:2px solid var(--fg);padding-top:14px}
+.c-out h4{font-size:19px;margin-bottom:8px}
+.c-out p{font-size:17px;line-height:1.55}
+.detail{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px clamp(40px,7vw,110px);padding-top:32px;margin-top:6px;border-top:1px solid var(--line)}
+.detail>div{min-width:0}
+.detail h4{font-size:19px;margin:28px 0 10px}
+.detail h4:first-child{margin-top:0}
+.detail p,.detail li{color:var(--muted);max-width:64ch}
+.detail ul{padding-left:20px;margin:0;display:grid;gap:8px}
+.steps{list-style:none;padding:0!important;margin:0;counter-reset:s;display:block!important}
+.steps li{counter-increment:s;padding:16px 0 16px 34px;border-top:1px solid var(--line);position:relative}
+.steps li:first-child{border-top:0;padding-top:4px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:16px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.steps li:first-child::before{top:4px}
+.steps b{display:block;color:var(--fg);margin-bottom:4px}
+.take{color:var(--fg)!important;font-family:var(--display);font-size:21px;line-height:1.4;letter-spacing:-.015em}
+
+.exp-line a{color:var(--fg);font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.exp-line a:hover{color:var(--accent-text)}
+.rows{margin-top:clamp(24px,3vw,40px)}
+.row{display:grid;grid-template-columns:minmax(150px,260px) minmax(0,1fr);gap:8px clamp(24px,5vw,72px);border-top:1px solid var(--line);padding-block:20px 22px}
+.row:last-child{border-bottom:1px solid var(--line)}
+.rows.plain .row{border:0;padding-block:10px}
+.rows.plain{margin-top:0}
+.row b{font-family:var(--display);font-size:22px;letter-spacing:-.02em;line-height:1.25}
+.row span{color:var(--muted);font-size:19px;max-width:62ch}
+details.sub-sec>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+details.sub-sec>summary::-webkit-details-marker{display:none}
+details.sub-sec>summary::after{content:"+";font-family:var(--body);font-weight:400;font-size:.7em;color:var(--accent);flex:none}
+details.sub-sec[open]>summary::after{content:"\2212"}
+details.sub-sec>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+details.sub-sec>summary~*{margin-top:clamp(20px,3vw,32px)}
+.panel[data-p="about"] .wrap>details.sub-sec:first-child{margin-top:0;border-top:0;padding-top:0}
+.theme{background:none;border:1px solid var(--line);color:var(--muted);font:inherit;font-size:15px;width:38px;height:38px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;cursor:pointer}
+.theme:hover{color:var(--fg)}
+.theme:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.nav .right{display:flex;align-items:center;gap:20px}
+.panel[data-p="about"]{padding-top:0}
+.panel[data-p="about"] .wrap>details.sub-sec:first-child{border-top:0}
+details.sub-sec>.tagline{margin-bottom:clamp(16px,2.5vw,24px)}
+details.sub-sec{margin-top:0;padding-block:clamp(22px,3vw,32px);border-top:1px solid var(--line)}
+.panel[data-p="about"] .wrap>details.sub-sec:last-child{border-bottom:1px solid var(--line)}
+details.sub-sec>summary.subh{font-size:clamp(26px,3.4vw,40px);line-height:1.15}
+details.sub-sec[open]>summary~*{margin-top:0}
+details.sub-sec[open]>summary{margin-bottom:clamp(14px,2vw,20px)}
+details.sub-sec>.intro,details.sub-sec>.tagline{margin-top:0}
+details.sub-sec>.intro+*{margin-top:clamp(20px,3vw,32px)}
+details.sub-sec>.rows,details.sub-sec>.exp{margin-top:clamp(16px,2.5vw,24px)}
+.rows.plain .row{padding-block:8px}
+.sub-sec{scroll-margin-top:80px}
+.tagline{font-family:var(--display);font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;margin-top:18px}
+.how{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px clamp(40px,7vw,110px);margin-top:clamp(32px,4vw,56px)}
+.how p{color:var(--muted);font-size:19px;max-width:60ch}
+.how p+p{margin-top:20px}
+.princ div{border-top:1px solid var(--line);padding-block:20px 24px}
+.princ b{display:block;font-family:var(--display);font-size:21px;letter-spacing:-.01em;margin-bottom:4px}
+.princ span{color:var(--muted);font-size:16px}
+
+.panel.connect{background:var(--accent);color:var(--on-accent);margin-inline:calc(-1*var(--gutter));padding-inline:var(--gutter);padding-bottom:clamp(64px,8vw,112px);margin-top:clamp(48px,6vw,88px)}
+.connect .intro{color:inherit;opacity:.92}
+.connect .btn{background:var(--on-accent);border-color:var(--on-accent);color:var(--accent);margin-top:32px}
+.connect .btn:hover{filter:brightness(.94)}
+.connect .tagline{opacity:.92}
+.panel.connect:first-of-type{margin-top:0}
+.notices{border-top:1px solid var(--line,#d0d5dd);padding-block:20px 0;font-size:15px;color:var(--muted)}.notices summary{cursor:pointer;padding:8px 0;font-weight:600;color:var(--fg)}.notices summary:focus-visible{outline:2px solid var(--accent,#1f4fd8);outline-offset:2px}.notices p{margin:4px 0 12px;max-width:70ch;line-height:1.6}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 32px;padding-block:28px 36px;color:var(--muted);font-size:15px}
+
+@media (max-width:860px){
+  .hero-grid,.how,.case,.detail,.exp,.row{grid-template-columns:minmax(0,1fr)}
+  .case{padding-block:36px}
+  .picker .wrap{gap:12px}
+}
+@media (prefers-reduced-motion:no-preference){.btn,.link,.tab{transition:background .2s,color .2s,filter .2s,border-color .2s}}
+</style>
+
+<div class="nav"><div class="wrap"><strong>Somayah Nouruzi Portfolio</strong><span class="right"><button class="theme" id="theme" type="button" aria-label="Switch between day and night mode"></button><a href="https://www.linkedin.com/in/somayahnouruzi">LinkedIn</a></span></div></div>
+
+<div class="picker" id="picker"><div class="wrap"><div class="tabs" id="tabs"></div></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <h1>Somayah Nouruzi</h1>
+  <p class="role">Digital Product Manager</p>
+  <p class="exp-line">Experience as a product owner and product manager. I have worked in business analysis, project management, product management, and AI implementation across different industries, in both fast-paced and highly regulated environments. See my <a href="#focus-areas" data-el="focus-areas">focus areas</a>, <a href="#how-i-work" data-tab="about" data-el="how-i-work">how I work</a>, and the <a href="#case-studies" data-go="work">case studies</a> that show my thought process.</p>
+  <div class="hero-grid">
+    <div>
+      <h2>I turn complex problems into focused digital products.</h2>
+      <p class="lead">I work across agentic AI experiences, enterprise workflows, and consumer tools, grounded in clear scope, user needs, and outcomes that can be measured.</p>
+      <div class="btns"><button class="btn primary" type="button" data-go="work">View case studies</button><button class="btn" type="button" data-go="connect">Connect with me</button></div>
+    </div>
+    <div class="focus" id="focus-areas">
+      <h3>Focus areas</h3>
+      <ul id="focus"></ul>
+    </div>
+  </div>
+</header>
+</div>
+
+
+
+<div id="panels">
+
+<section class="panel" data-p="about"><div class="wrap">
+  <details class="sub-sec" id="create-value">
+    <summary class="subh">How I create value?</summary>
+    <p class="intro">A product-led toolkit for enterprise and consumer experiences, with AI as a capability that has to earn its place by solving a real customer problem.</p>
+  <div class="exp">
+    <div class="item"><span class="num">1</span><div><h3>Agentic AI product strategy and discovery</h3><p>Product vision, strategy, and roadmap for agentic and generative AI. Zero-to-one discovery, user research, customer insight and behavioral data analysis, use-case selection, value hypotheses, business cases, and AI fit before build.</p></div></div>
+    <div class="item"><span class="num">2</span><div><h3>Roadmaps, backlog, and prioritization</h3><p>One shared backlog, personas and user stories, MVP definition, build-versus-buy analysis, vendor management, trade-offs, and sequencing around evidence, risk, and customer value, managed in scrum and other agile frameworks.</p></div></div>
+    <div class="item"><span class="num">3</span><div><h3>Customer experience and personalization</h3><p>Journey thinking, personas, contextual personalization, plain-language experiences, and close partnership with UX and design to reduce friction in complex workflows.</p></div></div>
+    <div class="item"><span class="num">4</span><div><h3>AI quality, trust, and governance</h3><p>Human-in-the-loop decisions, privacy and access controls, source-grounded answers with RAG, and AI evaluation covering accuracy, false-positive rate, and semantic evaluation metrics. Brand safety frameworks, semantic guardrails, data privacy governance, NIST AI RMF, HIPAA, and GDPR principles, AI solution scoring and approval, privacy and security review, data flow mapping, and RAID risk management.</p></div></div>
+    <div class="item"><span class="num">5</span><div><h3>Metrics, OKRs, experimentation, and rapid prototyping</h3><p>Baselines, adoption tracking, KPI and success metrics, A/B testing, OKRs, and behavioral insights that shape the next release. Rapid, AI-native prototyping in Claude Code, ChatGPT Codex, and Figma to test ideas early.</p></div></div>
+    <div class="item"><span class="num">6</span><div><h3>Cross-functional product leadership</h3><p>Voice of the product across UX, engineering, data science, platform teams, legal, security, and business partners. I work in agile teams using scrum, scrum of scrums, SAFe, and LEAN, and keep refining how I apply them. I adjust how I communicate for technical, non-technical, and executive audiences, always anchored in business value, and I use ADKAR for change management and go-to-market.</p></div></div>
+    <div class="item"><span class="num">7</span><div><h3>AI and technical fluency</h3><p>A working understanding of how large language models and AI systems work, including their limits and failure modes. Agentic workflow design, agent orchestration, multi-agent intent classification, and prompt and context engineering, with hands-on use of Claude, Claude Code, ChatGPT Codex, and Microsoft Copilot Studio. Working knowledge of Python and SQL for data work.</p></div></div>
+    <div class="item"><span class="num">8</span><div><h3>Tools, delivery environment, and certifications</h3><p>Jira, Asana, Azure DevOps, Smartsheet, MS Project, and Clarity PPM for planning and delivery tracking. Power BI, Tableau, and Excel for reporting and dashboards, plus Epic EHR and the Microsoft Azure environment. Certified as PMP, CSPO, and CSM, with an AI Product Management certificate from Duke.</p></div></div>
+  </div>
+  </details>
+  <details class="sub-sec" id="how-i-work">
+    <summary class="subh">How I work?</summary>
+    <p class="tagline">I try to understand a problem fully before I propose a solution.</p>
+    <div class="rows">
+      <div class="row"><b>Listen first</b><span>I talk with the people who live with the problem before I write a requirement.</span></div>
+      <div class="row"><b>Say no on purpose</b><span>Every roadmap I own has a list of things I chose not to build, with reasons.</span></div>
+      <div class="row"><b>Translate</b><span>I explain one decision to engineers, lawyers, and executives in the words each group needs.</span></div>
+      <div class="row"><b>Let evidence win</b><span>I trust usage data and user feedback over my own favorite idea.</span></div>
+      <div class="row"><b>Keep a person in the loop</b><span>With AI, I ask what happens when it is wrong and make sure someone can catch it.</span></div>
+    </div>
+  </details>
+  <details class="sub-sec" id="interests">
+    <summary class="subh">What I enjoy most</summary>
+    <div class="rows plain">
+      <div class="row"><b>At work:</b><span>I use creativity and curiosity to build things that improve quality and experience, reduce frustration, and solve real problems. I like doing it with other people.</span></div>
+      <div class="row"><b>Off the clock:</b><span>I read comparative studies of literature and philosophy, and I enjoy writing essays and poetry. Sitting with complexity until it becomes clear is how I think best.</span></div>
+    </div>
+  </details>
+</div></section>
+
+<section class="panel" data-p="work"><div class="wrap">
+  <h2>Case studies</h2>
+  <p class="intro">Each case shows the problem, product choices, trade-offs, outcomes, and learning. Outcomes are labeled by stage, including pilots, beta work, and projects refocused before build.</p>
+  <div class="tools"><p class="note">Privacy note: the cases are real. Project names, employer details, and numbers are withheld for privacy and are available on my resume.</p><button class="link expand" type="button">Expand all</button></div>
+  <div id="cases"></div>
+</div></section>
+
+<section class="panel" data-p="frameworks"><div class="wrap">
+  <h2>Frameworks and guides</h2>
+  <p class="intro">Data privacy and AI governance work that gave teams and communities a clear way to decide.</p>
+  <div class="tools"><p class="note">Same format as the case studies.</p><button class="link expand" type="button">Expand all</button></div>
+  <div id="fw"></div>
+</div></section>
+
+
+
+<section class="panel connect" data-p="connect"><div class="wrap">
+  <h2>Let's connect</h2>
+  <p class="tagline">Build the right thing, thoughtfully.</p>
+  <p class="intro">I am interested in Digital Product Manager, AI Product Manager, and Senior Product Manager roles focused on customer value, agentic experiences, enterprise workflows, and responsible AI-enabled products.</p>
+  <a class="btn" href="https://www.linkedin.com/in/somayahnouruzi">Connect on LinkedIn</a>
+</div></section>
+
+</div>
+
+<div class="wrap"><section class="notices" id="site-notices" aria-label="Site notices">
+<details><summary>Accessibility</summary><p>I aim for this site to be usable by everyone. It supports keyboard navigation, screen readers, visible focus states, light and dark themes, and responsive layouts. If you find a barrier, please message me on LinkedIn and I will work to fix it.</p></details>
+<details><summary>Privacy</summary><p>This site does not collect, store, or sell personal information. It has no forms, analytics, or advertising. Page fonts load from Google Fonts, which may receive your IP address and browser details as part of that request. Links to LinkedIn are governed by LinkedIn's own policies.</p></details>
+<details><summary>Cookies</summary><p>This site does not set cookies and does not need a cookie banner. If that changes, such as by adding analytics, I will add a consent notice first.</p></details>
+<details><summary>Terms</summary><p>The content is my own work and is shared for general information about my professional experience. Please ask before reusing it. Case studies are real but anonymized, and I make no guarantee that they apply to your situation. Hosted on GitHub Pages, which is subject to GitHub's terms and privacy statement.</p></details>
+</section></div>
+<div class="wrap"><footer><span>&copy; 2026 Somayah Nouruzi</span><span>Project names, employer details, and numbers are withheld for privacy and are available on my resume.</span></footer></div>
+
+<script>
+var DATA={"focus": ["Multi-agent intent classification and workflow orchestration", "Enterprise personalization and lifecycle mapping", "Zero-to-one product discovery and multilingual localization", "Data privacy governance and semantic guardrails", "Enterprise-wide data and information management"], "cases": [{"id": "orchestration", "tag": "Launched · Zero to one", "title": "Multi-Agent Workflow Orchestration for Healthcare", "sub": "A multi-agent system with intent classification and automated workflow orchestration that prepares clinicians for multidisciplinary case review. Scoped to prove value before adding features.", "focus": ["Multi-agent intent classification", "Automated workflow orchestration", "Healthcare", "MVP and phased roadmap", "AI governance"], "outcome": "Clinician preparation time dropped against a timed manual baseline, with strong adoption among clinicians and administrative staff.", "role": "Product Owner and Product Manager on an enterprise healthcare AI program. Worked with physicians, data science, data engineering, AI governance, legal, privacy, and security.", "problem": "Preparing a multidisciplinary case review meant gathering patient facts across many systems, with outside records arriving in different formats and lengths. Clinicians spent valuable time searching instead of deciding on care, and manual gathering raised the risk of missed details. The platform could do many things, so the product question was which few to ship first so the first release was safe, secure, and fast.", "trade": "A highly requested capability depended on connecting the agents to external data sources. That would have returned fresher information but raised the risk of exposing patient and clinician information if those connections were ever compromised, and the matching logic was more complex than a first release could justify. I deferred it to focus on speed, safety, privacy, cost, latency, and data quality, and to prove the core value before adding more.", "steps": [["Prove the core value first", "The proof of concept had to show saved clinician time, lower administrative burden, lower cost, and higher productivity. Clinician time is expensive, so the core value was assembling a patient's information before the review."], ["Start with one specialty and a contained set of cases", "A well-defined group of complex cases let us work through AI governance without waiting on a larger approval."], ["Phase the roadmap", "The first phase covered a short feature list and one specialty. System integration and the deferred capability would have added cost, security review, and risk before we knew whether the tool saved time."], ["Align stakeholders on the tradeoff in plain terms", "I met with clinicians, legal, and policy partners and set out the problem, why the capability mattered, its likely errors, latency, user experience, risk, cost, and time. I proposed a minimal viable experience first, then iteration toward a fuller product, with issues reported early in one consistent format."], ["Build the governance evidence", "We mapped how data moved and how end users used the tool, ran a risk assessment, and took approval frameworks through research review and third-party risk management so everyone understood the risk of each choice."], ["Measure with the people who had time", "Clinicians in training timed manual record review, then repeated it with the tool. That produced a baseline and a direct comparison for every case."]], "results": ["Clinician time per case fell substantially against the manual baseline.", "Strong adoption among clinicians and administrative staff in the months after launch.", "Delivered on time through every AI governance gate, with savings realized against the project budget."], "take": "Saying no to a popular capability made the first release faster and safer, and gave leadership a measured result to fund the next phase."}, {"id": "hr", "tag": "Piloted · Beta stage", "title": "Enterprise Personalization Agent for HR", "sub": "Turning an enterprise HR front-door vision into a testable, human-approved pilot, built on lifecycle mapping and personalization.", "focus": ["Enterprise-scale user ecosystem", "Lifecycle mapping", "Enterprise-wide personalization", "Build versus buy", "Human in the loop"], "outcome": "A working pilot that routed corrections to a person for approval and documented the failure modes to resolve before scaling.", "role": "Product Owner and Product Manager on an enterprise AI program. Worked with HR operations, IT, legal, privacy, security, and external vendors.", "problem": "HR questions reached employees through phone queues, tickets, knowledge articles, and several websites, and waits could be long. The vision was one personalized agent that follows an employee across the full employment lifecycle and answers by role, pay type, department, tenure, and location.", "trade": "The full HR front door was a strong vision for a very large user ecosystem, but it depended on funding, ownership, source data, and regional rules that were not settled. AI output also varies, so the same question can return different answers. I traded breadth for control: one agent, a contained set of timekeeping scenarios and user types, and a person approving every correction.", "steps": [["Treat the full vision as a long-term goal", "I framed the lifecycle agent as a multi-year roadmap item and asked for a smaller first release that could be built, tested, and iterated quickly."], ["Map the user ecosystem and lifecycle", "I mapped the employee lifecycle and the people who would ask questions, such as employees, supervisors, and delegates, to decide where personalization mattered most."], ["Run build-or-buy analysis before committing", "We met with large technology providers and weighed in-house build, co-development, and extending existing vendors for cost, control, and platform fit."], ["Narrow to timekeeping for hourly employees", "A handful of scenarios, such as missed punches and pay or job code changes, gave a contained set of tasks with clear rules, delivered inside the enterprise collaboration platform employees already use."], ["Test scenarios and safeguards before adding scope", "We ran scenario tests and A/B comparisons of responses, checked that guardrails held, and checked that retrieval returned only what a person was allowed to see. Privacy and over-sharing tests were part of the first release."], ["Keep a human approval step", "The agent created a correction ticket and a person made the final call."]], "results": ["The pilot produced correction tickets for human approval.", "Testing documented failure modes around consistency, access, and privacy, which shaped the next phase.", "A clear plan for the work needed before scaling."], "take": "Narrow scope made failure modes visible early and cheaply. For any agent that touches personal data, privacy, reliability, and guardrail testing belong in the first release."}, {"id": "rooming", "tag": "Refocused through discovery", "title": "Personalized Patient Rooming Agent", "sub": "Validating the problem before the build, then shaping the concept around the clearest unmet need for patients and visitors arriving from outside the area.", "focus": ["Personalized patient rooming agent", "Product discovery", "Customer journey", "Prioritization", "Ownership alignment"], "outcome": "The build was refocused before engineering time was committed, with a clearer user and a lighter scope.", "role": "Product Owner and Product Manager on an enterprise healthcare AI program. Worked with clinical operations stakeholders and multiple delivery partners.", "problem": "Clinical operations stakeholders wanted a personalized experience for patients, visitors, and family members, covering delay updates, wayfinding, local services, pre-visit instructions, and follow-up information. The request arrived as a solution, a rooming app, so the first task was to confirm which problem it solved.", "trade": "Existing patient tools already covered wayfinding and pre-visit steps, and another app would have added a second place to look. I traded the broad rooming app for a narrower concept aimed at the clearest unmet need: a concierge guide for patients and visitors coming from outside the area.", "steps": [["Clarify ownership early", "With several delivery partners involved, I asked everyone to state who would design, build, and deploy each part, and by when, before work was funded."], ["Reverse-engineer the end state", "I asked the team to describe what a patient could see, do, and feel once the product was live. The answers showed the concept still needed definition."], ["Test the problem before the solution", "I checked whether the problem was real, what existing tools and front desk staff already covered, whether delay notices would inform or worry patients, and what added documentation work the concept would place on clinicians."], ["Reshape around the unmet need", "The gap belonged to patients and visitors coming from outside the area. A concierge guide could cover lodging, transportation, food, local points of interest, and clinic maps."]], "results": ["The original build was refocused before engineering time was committed.", "The idea became a patient and visitor concierge guide with a clearer user and a lighter scope."], "take": "Confirm the problem before agreeing to the solution. A small product aimed at an unmet need beats a large one that repeats what existing tools already do."}, {"id": "credit", "tag": "Working beta · Founder-led", "title": "Credit Builder for Newcomers", "sub": "Zero-to-one product discovery that narrowed a broad set of newcomer needs to one high-value job, delivered in multiple languages.", "focus": ["Zero-to-one product discovery", "Multilingual localization", "Customer research", "Personalization", "MVP"], "outcome": "A working multilingual beta, piloted through a messaging app with a small group of newcomers.", "role": "Founder and Product Lead. Users are newcomers to the United States, starting in Minnesota.", "problem": "A person arriving in the United States often has no credit history and no idea how to start one. The steps are spread across banks, credit unions, and websites, and they are confusing in a second language.", "trade": "A full newcomer super-app was the exciting idea, and an early AI-assisted build tried to cover many languages. It looked basic, felt complicated, and translated only part of the content. I traded breadth for one job, building credit, delivered as a lightweight page people open in a messaging app already on their phones, so there is no new app to install and forget.", "steps": [["Give the product one clear job", "Market research across many immigrant groups produced a long list of needs. Credit applies to nearly all of them and sits under housing, transportation, and a phone, so I built only the credit builder and linked to current official sources for details that change."], ["Narrow geography and language coverage", "I limited the launch to Minnesota and a set of fully translated languages: English, Ukrainian, Russian, Arabic, Somali, and Persian. Complete localization mattered more than the number of languages."], ["Deliver where people already are", "A page shared through a messaging app kept cost low and kept the guidance one tap away for people who want to build credit and do not know where to start."], ["Explain first, then guide action", "A short explanation of credit scores leads into a checklist and a month-by-month timeline, with secured cards, credit unions, and secured bank accounts planned for a later version."], ["Personalize without adding complexity", "Users mark what they already have, and the timeline shows where they stand and what comes next."]], "results": ["A working multilingual version with plain-language explanations, a checklist, a timeline, and light personalization.", "A beta piloted through a messaging app and used by a small group of newcomers."], "take": "When a topic is as large as everything a newcomer needs, the first product decision is what to leave out."}, {"id": "international", "tag": "Delivered · International", "title": "International Product Management: Enterprise Data and Information Systems", "sub": "Two products for a national justice institution under high ambiguity: a shared case and identity record system, and a source-grounded legal reference assistant.", "focus": ["Enterprise-wide end-to-end data management", "Information management", "Product vision and roadmap", "Source-grounded AI", "Data governance"], "outcome": "A working case and identity system and a completed local beta of the legal assistant. National rollout ended with the collapse of the government.", "role": "Program Manager and Product Owner at a national justice institution in Afghanistan, on internationally funded programs. Owned product vision, roadmap, and budget, and reported to senior government leadership.", "problem": "Court orders did not reliably reach the people they named, because identity data such as national ID, passport, and biometrics sat in separate offices. Separately, nonprofits, shelters, and newly certified lawyers needed a fast way to learn whether a case fell under civil or criminal law and what the code said.", "trade": "For the case system, a polished interface would have taken a long time to design and the offices needed something that worked, so I traded visual polish for a low learning curve: familiar technology and a spreadsheet-style screen. For the legal assistant, a comprehensive reference for every question would have been slow and hard to keep accurate, so the beta covered only complicated cases where civil and criminal law intertwine.", "steps": [["Replace separate office databases with one shared record", "Identity details and case records lived together, so the record traveled with the person across offices."], ["Design for the smallest learning curve", "Familiar technology and a simple spreadsheet-style layout let staff start with little training."], ["Use the same system to check data integrity", "Staff records were checked against the system to confirm data quality and integrity."], ["Ground the assistant in the source codes", "The assistant answered from the civil and criminal codes themselves, because in legal work an answer with no source is a risk to the person asking."], ["Cut scope to the hardest cases", "Simple questions were removed so the assistant focused on cases a regular attorney would struggle to resolve."], ["Build with the people who would use it", "We worked with women's advocacy groups and shelters so staff could tell a civil matter from a criminal one and reach the right legal aid. The tool also served newly certified lawyers as a kind of supervisor."], ["Plan a national rollout", "The target was use across every province, so a person identified at one office was identified at all of them."]], "results": ["A working, completed case and identity system for prosecutors' offices.", "A completed local beta of the legal reference assistant.", "The program contributed to the institution being recognized among the least corrupt national bodies.", "The national rollout ended with the collapse of the government, before long-term outcomes could be measured."], "take": "A database that identifies people for accountability can also be used against them. Access controls, retention rules, and clear data ownership come first, and I now ask for risk review before build."}], "frameworks": [{"id": "retention", "tag": "Framework delivered", "title": "Data Retention Governance Framework", "sub": "A data retention initiative that set data privacy governance, brand safety, and semantic guardrails for AI voice data, so a large AI program could scale with patient trust.", "focus": ["Data retention initiative", "Data privacy framework", "Brand safety framework", "Semantic guardrails", "Data privacy governance"], "outcome": "A data flow map, risk assessment, and approval framework, routed through internal governance review.", "role": "Product Owner and Product Manager on an enterprise healthcare AI program. Led the data retention governance workstream with legal, privacy, security, IT, and risk partners.", "problem": "The program used AI that captures voice data. Recording was only part of the question. How long to keep that data, what authorizations patients would sign, how it could be used to train AI, and how far it could be used commercially all needed answers under national and international rules.", "trade": "Keeping the data longer would have given the AI more to learn from and kept features moving, but it raised the stakes on privacy, patient authorization, and commercialization. I put the retention question ahead of new features, so the program could deliver business value and still protect the brand, patients, and clinicians.", "steps": [["Research how people feel about it", "I ran user research on how patients feel about AI being used without their permission, including their concerns about risk, rights, and regulation, and how they think about voice recording."], ["Weigh business value against governance", "I assessed the business value the data could add alongside the governance view, covering patient authorizations, model training, and commercial use."], ["Map the data", "I built a data flow map of how voice data moves through the system."], ["Assess risk and set an approval framework", "I produced a risk assessment and an approval framework grounded in NIST AI RMF and GDPR principles, and aligned legal, privacy, security, IT, and risk partners around them."], ["Route it for review and approval", "The framework went through internal policy review and then to executive-level governance for approval."]], "results": ["A data flow map, risk assessment, and approval framework for voice data retention.", "Submitted for internal policy review, then to executive-level governance for approval."], "take": "A governance framework keeps a team from fixing the wrong problem. AI is worth using when the problem is real and the protections for the brand, patients, and clinicians are built in from the start."}, {"id": "datacenter", "tag": "Published · Public impact", "title": "Data Center Governance Guide", "sub": "Turning a complex AI infrastructure topic into a practical framework for local decision-makers.", "focus": ["Policy research", "Stakeholder alignment", "Responsible AI", "AI infrastructure governance"], "outcome": "A practical guide distributed to cities and counties across Minnesota, followed by a well-attended statewide panel.", "role": "Policy Fellow, Humphrey School of Public Affairs, University of Minnesota, selected as part of a statewide cohort of leaders.", "problem": "Hyperscale data centers were being proposed across Minnesota. Local governments needed a consistent way to assess AI infrastructure risks and to know what transparency to expect from developers.", "trade": "The first idea was a policy framework tied to legislation. With legislation in motion and budgets tight, that path was slow and uncertain, and a guide covering everything about data centers would have been complete and unread. I traded completeness for the clearest fix: find where the system was breaking down, then build the easiest answer, with the smallest learning curve and the least resistance, to the questions communities were actually asking.", "steps": [["Set the scope before gathering input", "My cohort and I defined what was in and out of scope before bringing in outside voices, which kept the guide usable for a very wide audience."], ["Talk to every side of the issue", "We heard from residents who wanted a data center and residents who opposed one, university researchers, environmental and energy advocates, and developers."], ["Find the bottleneck, then choose the easiest fix", "We started by asking where the system was breaking down. That led to a practical guide and a public panel in place of a heavier policy framework."], ["Put clear information first", "The guide and a statewide panel gave officials and residents plain, honest information about risks and open questions."], ["Write for technical and non-technical readers at once", "My test was that if a child could not follow an explanation, it was not clear enough."]], "results": ["A governance guide with AI infrastructure risk frameworks, distributed to cities and counties across Minnesota.", "A statewide panel on data center transparency and AI governance, followed by invitations from other organizations."], "take": "Clarity and trust are part of the product. A framework only creates value when different audiences can understand and apply it."}]};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+document.getElementById('focus').innerHTML=DATA.focus.map(function(f){return '<li>'+esc(f)+'</li>'}).join('');
+function card(c){
+  var d='<div class="detail" hidden><div>'
+   +'<h4>My role</h4><p>'+esc(c.role)+'</p>'
+   +'<h4>Problem</h4><p>'+esc(c.problem)+'</p>'
+   +'<h4>Key tradeoff</h4><p>'+esc(c.trade)+'</p></div>'
+   +'<div><h4>Product decisions</h4><ol class="steps">'+c.steps.map(function(s){return '<li><b>'+esc(s[0])+'</b><p>'+esc(s[1])+'</p></li>'}).join('')+'</ol>'
+   +'<h4>Outcomes</h4><ul>'+c.results.map(function(r){return '<li>'+esc(r)+'</li>'}).join('')+'</ul>'
+   +'<h4>Takeaway</h4><p class="take">'+esc(c.take)+'</p></div></div>';
+  return '<article class="case"><div class="c-main"><div class="c-tag">'+esc(c.tag)+'</div>'
+   +'<h3>'+esc(c.title)+'</h3><p class="sub">'+esc(c.sub)+'</p>'
+   +'<ul class="words">'+c.focus.map(function(m){return '<li>'+esc(m)+'</li>'}).join('')+'</ul>'
+   +'<button class="link toggle" type="button" aria-expanded="false">Read case study</button></div>'
+   +'<div class="c-out"><h4>Outcome</h4><p>'+esc(c.outcome)+'</p></div>'+d+'</article>';
+}
+document.getElementById('cases').innerHTML=DATA.cases.map(card).join('');
+document.getElementById('fw').innerHTML=DATA.frameworks.map(card).join('');
+function setOpen(art,show){
+  art.querySelector('.detail').hidden=!show;
+  var t=art.querySelector('.toggle');t.setAttribute('aria-expanded',show);t.textContent=show?'Close case study':'Read case study';
+}
+
+/* section picker */
+var TABS=[['about','About me'],['work','Case studies'],['frameworks','Frameworks'],['connect','Connect']];
+var tabsEl=document.getElementById('tabs'),panels=Array.prototype.slice.call(document.querySelectorAll('.panel'));
+tabsEl.innerHTML=TABS.map(function(t){return '<button class="tab" type="button" data-t="'+t[0]+'" aria-pressed="false">'+t[1]+'</button>'}).join('');
+function show(id,fromUser){
+  var ids=TABS.map(function(t){return t[0]});
+  if(id==='value'||id==='how')id='about';
+  if(ids.indexOf(id)<0)id='about';
+  panels.forEach(function(p){p.hidden=(p.dataset.p!==id)});
+  Array.prototype.forEach.call(tabsEl.querySelectorAll('.tab'),function(b){b.setAttribute('aria-pressed',String(b.dataset.t===id))});
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+  if(fromUser){
+    var y=0;
+    if(id!=='about')y=window.scrollY+document.getElementById('panels').getBoundingClientRect().top-document.getElementById('picker').offsetHeight;
+    window.scrollTo({top:Math.max(0,y),behavior:'auto'});
+  }
+}
+function jump(tab,elId){
+  if(tab)show(tab,false);
+  var el=document.getElementById(elId);
+  if(el&&el.tagName==='DETAILS')el.open=true;
+  if(el){window.scrollTo({top:Math.max(0,window.scrollY+el.getBoundingClientRect().top-document.getElementById('picker').offsetHeight-12),behavior:'auto'})}
+}
+(function(){
+var btn=document.getElementById('theme'),root=document.documentElement;
+function dark(){var a=root.getAttribute('data-theme');if(a)return a==='dark';return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches}
+function label(){var d=dark();btn.innerHTML=d?'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>';btn.title=d?'Switch to day mode':'Switch to night mode'}
+try{var s=localStorage.getItem('theme');if(s==='dark'||s==='light')root.setAttribute('data-theme',s)}catch(e){}
+label();
+btn.addEventListener('click',function(){var n=dark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+tabsEl.addEventListener('click',function(e){var b=e.target.closest('.tab');if(b)show(b.dataset.t,true)});
+document.addEventListener('click',function(e){
+  var j=e.target.closest('a[data-el]');if(j){e.preventDefault();jump(j.dataset.tab,j.dataset.el);return}
+  var g=e.target.closest('[data-go]');if(g){e.preventDefault();show(g.dataset.go,true);return}
+  var t=e.target.closest('.toggle');
+  if(t){var art=t.closest('.case');setOpen(art,art.querySelector('.detail').hidden);return}
+  var x=e.target.closest('.expand');
+  if(x){
+    var open=x.textContent==='Expand all';
+    Array.prototype.forEach.call(x.closest('.panel').querySelectorAll('.case'),function(a){setOpen(a,open)});
+    x.textContent=open?'Collapse all':'Expand all';
+  }
+});
+var start='about';try{start=(location.hash||'').replace('#','')||'about'}catch(e){}
+show(start,false);
+</script>
+
+</body></html>
