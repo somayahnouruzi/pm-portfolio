@@ -2,7 +2,6 @@
 
 Personal portfolio site for Somayah Nouruzi, Digital Product Manager.
 
-Live site: https://somayahnouruzi.com
 
 ## About
 
